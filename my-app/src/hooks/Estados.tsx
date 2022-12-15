@@ -17,7 +17,6 @@ export interface IEstados {
 const useEstados = () => {
     const  [estados , setEstados] = useState<IEstados[]>([])
     
-    //const newEstados = estados.sort((a :IEstados,b :IEstados) => {})
     
     
     useEffect( () => {
@@ -28,9 +27,7 @@ const useEstados = () => {
         }, []);
     
         
-            
-     
-        return {
+         return {
             estados
             }
         
