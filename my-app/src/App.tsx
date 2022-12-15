@@ -7,7 +7,7 @@ import { useState } from 'react';
 function App() {
   const { estados } = useEstados();
   const [estadoSelecionado , setestadoSelecionado] = useState('');
-  const { cidades, carregando: carregandoCidades } = useCidades({uf:{estadoSelecionado}});
+  const { cidades } = useCidades({id:{estadoSelecionado}});
   
   const MudaEstado = (e: { target: { value: React.SetStateAction<string>; }; }) =>{
     console.log(e.target.value)
@@ -23,12 +23,11 @@ function App() {
       <select value={estadoSelecionado} onChange={MudaEstado}>
          {estados.map((estado) => (<option key={estado.id} value={estado.sigla}>{estado.nome}</option>))}
       </select>
-      {carregandoCidades ? (<p>Carregando...</p>)
-      :(      
+           
       <select>
-        {cidades.map((cidade)=> (<option  key={cidade.codigo_ibge}>{cidade.nome}</option>))}
-      </select>)  
-    }
+        {cidades.map((cidade)=> (<option  key={cidade.id} value={cidade.id}>{cidade.nome}</option>))}
+      </select>
+    
       
 
     </div>
