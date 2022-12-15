@@ -16,8 +16,12 @@ export interface IEstados {
 
 const useEstados = () => {
     const  [estados , setEstados] = useState<IEstados[]>([])
-
+    
+    //const newEstados = estados.sort((a :IEstados,b :IEstados) => {})
+    
+    
     useEffect( () => {
+        
         fetch("https://brasilapi.com.br/api/ibge/uf/v1")
         .then((response)=> response.json())
         .then((data) => setEstados(data))
